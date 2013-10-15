@@ -1,0 +1,10 @@
+#Extractor
+Query for available time and back off if next interval is not available.
+Save search ids and times to a bookmark file and don't redo same search when restarting.
+Only delete old searches that the instance owns (allowing for multiple instances).
+Add configuration for max simultaneous searches - polling the oldest search.
+Add feature to check disk space before pulling files.
+
+#Distributor
+
+#Agents
