@@ -1,5 +1,5 @@
 #Extractor
-Query for available time and back off if next interval is not available.
+Done - back off if next interval is not available based on current time - added a lag config.
 Save search ids and times to a bookmark file and don't redo same search when restarting.
 Only delete old searches that the instance owns (allowing for multiple instances).
 Add configuration for max simultaneous searches - polling the oldest search.

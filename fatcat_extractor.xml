@@ -1,4 +1,4 @@
-<extractor-config host="hostname" port="80" user="admin" password="Solera" interval="60" poll="5" logdir="/home/charly/git/fatcat/log/" bookmark_file="/home/charly/git/fatcat/fatcat.bookmark" zipdir="/home/charly/git/fatcat/zips/" log_json="n" log_verbose="n" end_time="" run_for="">
+<extractor-config host="hostname" port="80" user="admin" password="Solera" interval="60" poll="5" logdir="/home/charly/git/fatcat/log/" bookmark_file="/home/charly/git/fatcat/fatcat.bookmark" zipdir="/home/charly/git/fatcat/zips/" log_json="n" log_verbose="n" end_time="" run_for="" lag="60">
 
 <!-- NOTE for 6.5.2 the valid include_solera_filters values are 
   ALL  DOCX  HTTP-GET  PNG  VJPEG

@@ -12,6 +12,7 @@ use XML::Simple;
 my $config_file;
 my $config;
 my $interval;
+my $lag;
 my $host;
 my $port;
 my $user;
@@ -75,6 +76,7 @@ sub get_config() {
   #print Dumper $config;
 
   $interval = $config->{'interval'};
+  $lag = $config->{'lag'};
   $user = $config->{'user'};
   $password = $config->{'password'};
   $host = $config->{'host'};
@@ -93,6 +95,8 @@ sub get_config() {
     print "bookmark not valid\n";
     usage();
   }
+
+  log_text("Starting new instance\n");
 
   # set flags if filtering
 
@@ -130,7 +134,6 @@ sub get_config() {
   }
 
 
-  log_text("Starting new instance\n");
   my $logged_config = Dumper $config;
   log_verbose("$logged_config\n");
 }
@@ -330,6 +333,15 @@ get_config();
 while (1) {
   my $start_time = get_solera_time($bookmark);
   my $end_time = get_solera_time($bookmark+$interval-1);
+
+  # sleep if the request is about to include the future or the lag period (give Solera a change to classify the traffic)
+  if ($bookmark+$interval+$lag > time) {
+    my $delay = $bookmark + $interval + $lag - time + 1;
+    log_text("delaying $delay seconds\n");
+    my $current_time = time;
+    log_verbose("current time $current_time, query end time $bookmark + $interval, lag period $lag\n");
+    sleep($delay);
+  }
 
   my $result = get_extraction_list_ids();
   foreach my $search (@{$result->{'response'}->{'searches'}}) {
