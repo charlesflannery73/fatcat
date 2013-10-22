@@ -1,14 +1,10 @@
-<extractor-config host="hostname" port="80" user="admin" password="Solera" interval="60" poll="5" logdir="/home/charly/git/fatcat/log/" bookmark_file="/home/charly/git/fatcat/fatcat.bookmark" zipdir="/home/charly/git/fatcat/zips/" log_json="n" log_verbose="n" end_time="" run_for="" lag="60">
+<extractor-config host="192.168.1.18" port="80" user="admin" password="Solera" interval="60" poll="5" logdir="/home/charly/fatcat/log/extractor" bookmark_file="/home/charly/fatcat/fatcat.bookmark" zipdir="/home/charly/fatcat/zips" log_json="n" log_verbose="y" end_time="" run_for="" lag="30">
 
 <!-- NOTE for 6.5.2 the valid include_solera_filters values are 
-  ALL  DOCX  HTTP-GET  PNG  VJPEG
-  ASF  ELF   HTTP-POST PPT  VOIP
-  AVI  EML   IM        PPTX WAV
-  BMP  EXE   JPG       RA   WMV 
-  CONF FLASH MOV       RAR  WPD
-  CPP  GIF   MPG       REG  XLS 
-  DLL  GZIP  OTHER     RIFF XLSX
-  DOC  HTML  PDF       RPM  ZIP
+  ALL  DOCX  HTTP-GET  PNG  VJPEG  ASF  ELF   HTTP-POST PPT  VOIP
+  AVI  EML   IM        PPTX WAV    BMP  EXE   JPG       RA   WMV 
+  CONF FLASH MOV       RAR  WPD    CPP  GIF   MPG       REG  XLS 
+  DLL  GZIP  OTHER     RIFF XLSX   DOC  HTML  PDF       RPM  ZIP
 Also note that ALL is the slowest
 -->
   <include_solera_type>ALL</include_solera_type>
@@ -16,23 +12,15 @@ Also note that ALL is the slowest
 <!--
   <include>
     <mime_type>application/msword</mime_type>
-    <mime_type>application/pdf</mime_type>
-    <mime_type>image/png</mime_type>
-
     <magic_type>text/plain</magic_type>
-    <magic_type>application/pdf</magic_type>
-
     <extension_type>doc</extension_type>
   </include>
 
 -->
   <exclude>
     <mime_type>protocol/http-get</mime_type>
-
-    <magic_type>text/plain</magic_type>
-
+    <magic_type>text/3</magic_type>
     <extension_type>png</extension_type>
-    <extension_type>txt</extension_type>
   </exclude>
 </extractor-config>
 

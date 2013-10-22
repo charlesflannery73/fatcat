@@ -63,6 +63,7 @@ sub get_config() {
     print "Please provide the config filename\n";
     usage();
   }
+
   $config_file = $ARGV[0];
 
   if (!-e $config_file) {
@@ -70,7 +71,6 @@ sub get_config() {
     usage();
   }
 
-  $config_file = $ARGV[0];
   $config = XMLin($config_file, ForceArray => ['extension_type', 'magic_type', 'mime_type', 'include_solera_type']);
 
   #print Dumper $config;
@@ -236,7 +236,7 @@ sub get_all_artifacts($) {
   if (!$page->is_success) {
     die $page->status_line;
   }
-  my $out_file = "$zipdir" . "search_$id.zip";
+  my $out_file = "$zipdir/search_$id.zip";
   log_verbose("writing $out_file\n");
   open(OUT_FILE, ">$out_file.tmp") or die("Unable to open file");
   print OUT_FILE $page->content;
@@ -270,7 +270,7 @@ sub get_single_artifacts($$$) {
   if (!$page->is_success) {
     die $page->status_line;
   }
-  my $out_file = "$zipdir" . "search_$search_id\_$suffix.zip";
+  my $out_file = "$zipdir/search_$search_id\_$suffix.zip";
   log_verbose("writing $out_file\n");
   open(OUT_FILE, ">$out_file.tmp") or die("Unable to open file");
   print OUT_FILE $page->content;
@@ -284,7 +284,7 @@ sub log_text($){
   my ($weekday, $mon, $day, $time, $year) = split (/ +/, $etime);
   my $month = $month_lookup{$mon};
   $log = "$year-$month-$day $time $log";
-  my $log_file = "$logdir$year-$month-$day.log";
+  my $log_file = "$logdir/$year-$month-$day.log";
   open(FILE, ">>$log_file") or die("Unable to open $log_file");
   print FILE $log;
   close(FILE);
@@ -305,7 +305,7 @@ sub log_json($){
     my $month = $month_lookup{$mon};
     $log = Dumper $log;
     $log = "$year-$month-$day $time\n$log";
-    my $log_file = "$logdir$year-$month-$day.json";
+    my $log_file = "$logdir/$year-$month-$day.json";
     open(FILE, ">>$log_file") or die("Unable to open $log_file");
     print FILE $log;
     close(FILE);
@@ -319,7 +319,7 @@ sub log_error($){
   my $month = $month_lookup{$mon};
   $log = Dumper $log;
   $log = "$year-$month-$day $time\n$log";
-  my $log_file = "$logdir$year-$month-$day.error";
+  my $log_file = "$logdir/$year-$month-$day.error";
   open(FILE, ">>$log_file") or die("Unable to open $log_file");
   print FILE $log;
   close(FILE);

@@ -1,0 +1,26 @@
+<distributor-config working_dir="/home/charly/fatcat/distributor" poll="30" logdir="/home/charly/fatcat/log/distributor" log_verbose="y">
+
+  <zip_dir>/home/charly/fatcat/zips</zip_dir> 
+  <zip_dir>/home/charly/fatcat/zip2</zip_dir> 
+
+  <agent agent_name="pdf-parser" dir="/home/charly/fatcat/pdf-parser">
+    <include>
+      <mime_type>application/pdf</mime_type>
+      <file_ext>pdf</file_ext>
+    </include>
+  </agent>
+
+  <agent agent_name="clamav" dir="/home/charly/fatcat/clamav">
+    <include>
+      <file_ext>pdf</file_ext>
+    </include>
+  </agent>
+
+  <agent agent_name="swf-checker" dir="/home/charly/fatcat/swf-checker">
+    <include>
+      <file_ext>swf</file_ext>
+      <file_ext>flash</file_ext>
+    </include>
+  </agent>
+
+</distributor-config>
