@@ -6,5 +6,6 @@ Add configuration for max simultaneous searches - polling the oldest search.
 Add feature to check disk space before pulling files.
 
 #Distributor
+Done - initial commit
 
 #Agents
