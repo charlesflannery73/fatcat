@@ -1,0 +1,2 @@
+<clamav-config agent_name="clamav" working_dir="/home/charly/fatcat/clamav" log_dir="/home/charly/fatcat/log/clamav" alert_dir="/home/charly/fatcat/log/alerts" poll="30" verbose="y">
+</clamav-config>
