@@ -1,0 +1,2 @@
+<clamav-config agent_name="yara" working_dir="/home/charly/fatcat/yara" log_dir="/home/charly/fatcat/log/yara" alert_dir="/home/charly/fatcat/log/alerts" rules="/home/charly/fatcat/yara_rules/*" poll="30" verbose="y">
+</clamav-config>
